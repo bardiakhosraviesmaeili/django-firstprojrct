@@ -6,7 +6,10 @@
 </head>
 <body>
 
-
-<h3>hello users....</h3>
+<p>{% if name == 'Bardia' %}
+Hello Bardia ,<br><br>
+    Welcome to this page.
+{% endif %}</p>
+<h3> {{ name }} your last name is {{ last_name|upper }}</h3>
 </body>
 </html>
