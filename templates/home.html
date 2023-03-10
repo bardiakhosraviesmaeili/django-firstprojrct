@@ -5,7 +5,12 @@
     <title>home</title>
 </head>
 <body>
+{{ all }}
+{% for todo in todos %}
 
-<h3> home page..</h3>
+    <h3> {{ todo.title }}</h3>
+    <small>{{ todo.body }}</small>
+    <p>{{ todo.created }}</p>
+{% endfor %}
 </body>
 </html>
