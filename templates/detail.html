@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <a href="{% url 'delete' todo.id%}" class="button btn_danger">Delete</a>
     <h3>{{ todo.title }}</h3>
     <small>{{ todo.created }}</small>
     <hr/>
