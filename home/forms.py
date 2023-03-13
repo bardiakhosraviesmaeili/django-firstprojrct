@@ -1,7 +1,7 @@
 from django import forms
 
 
-class TodpCreateform(forms.Form):
+class TodoCreateForm(forms.Form):
     title = forms.CharField()
     body = forms.CharField()
     created = forms.CharField()

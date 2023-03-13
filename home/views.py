@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Todo
 from django.contrib import messages
-from .forms import TodpCreateform
+from .forms import TodoCreateForm
 
 
 def say_hello(request):
@@ -25,5 +25,13 @@ def delete(request, todo_id):
 
 
 def create(request):
-    form = TodpCreateform
-    return render(request, 'create.html', {'form': form})
+    if request.method == "POST":
+        form = TodoCreateForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            Todo.objects.create(title=cd['title'], body=cd['body'], created=cd['created'])
+            messages.success(request, 'Todo added successfuly', 'success')
+            return redirect('home')
+    else:
+        form = TodoCreateForm
+        return render(request, 'create.html', {'form': form})
